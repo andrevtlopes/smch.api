@@ -1,0 +1,30 @@
+version: '2'
+services:
+  unioeste.smch.db:
+    image: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=smch
+
+  mqtt:
+    image: eclipse-mosquitto
+    restart: always
+    ports:
+      - 1883:1883
+
+#version: "3"
+#services:
+#  unioeste.smch.db:
+#    image: postgres:9.6
+#    container_name: "postgres"
+#    environment:
+#    - POSTGRES_DB=tadpgweb
+#    - POSTGRES_USER=postgres
+#    - TZ=GMT
+#    volumes:
+#    - "./data/postgres:/var/lib/postgresql/data"
+#    ports:
+#    - 5432:5432
